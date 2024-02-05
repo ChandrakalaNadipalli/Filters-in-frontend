@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Doument</title>
+    <style>
+      img {
+        width: 200px;
+        height: 150px;
+      }
+      .grids {
+        background-color: black;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .button {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 5px;
+        padding: 5px 10px;
+      }
+      .button button {
+        background-color: rgb(138, 43, 226);
+        border: none;
+        color: white;
+        padding: 3px 16px;
+        text-align: center;
+        border-radius: 30px;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 10px;
+        margin: 4px 2px;
+        cursor: pointer;  
+        transform: rotateZ('360deg');
+      }
+      .button button:hover{
+        background-color: white;
+        color: blueviolet;
+        
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      function applyFilter(filter) {
+        let image = document.getElementById("image");
+        switch (filter) {
+          case "default":
+            image.style.filter = "none";
+            break;
+          case "grayscale":
+            image.style.filter = "grayscale(100%)";
+            break;
+          case "contrast":
+            image.style.filter = "contrast(200%)";
+            break;
+          case "opacity":
+            image.style.filter = "opacity(50%)";
+            break;
+          case "drop-shadow":
+            image.style.filter = "drop-shadow(6px 16px 20px blue)";
+            break;
+          case "blur":
+            image.style.filter = "blur(5px)";
+            break;
+          case "brightness":
+            image.style.filter = "brightness(150%)";
+            break;
+          case "saturation":
+            image.style.filter = "saturate(20)";
+            break;
+          case "hue-rotate":
+            image.style.filter = "hue-rotate(50deg)";
+            break;
+          case "invert":
+            image.style.filter = "invert(75%)";
+            break;
+          default:
+            image.style.filter = "none";
+            break;
+        }
+      }
+    </script>
+    <div class="grids">
+      <img id="image" src="bird.jpeg" alt="" />
+      <div class="button">
+        <button onclick="applyFilter('default')">Default</button>
+        <button onclick="applyFilter('grayscale')">Grayscale</button>
+        <button onclick="applyFilter('contrast')">Contrast</button>
+        <button onclick="applyFilter('opacity')">Opacity</button>
+        <button onclick="applyFilter('drop-shadow')">Drop-Shadow</button>
+        <button onclick="applyFilter('blur')">Blur</button>
+        <button onclick="applyFilter('brightness')">Brightness</button>
+        <button onclick="applyFilter('saturation')">Saturation</button>
+        <button onclick="applyFilter('hue-rotate')">Hue</button>
+        <button onclick="applyFilter('invert')">Invert</button>
+      </div>
+    </div>
+  </body>
+</html>
